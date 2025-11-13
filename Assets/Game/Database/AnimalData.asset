@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9d14c30856490b8aa59f6a19028e29, type: 3}
+  m_Name: AnimalData
+  m_EditorClassIdentifier: 
+  animals:
+  - prefabName: animal_0
+    power: 10
+    speedMultiplier: 1
+    icon: {fileID: 0}
+  - prefabName: animal_1
+    power: 20
+    speedMultiplier: 1
+    icon: {fileID: 0}
+  - prefabName: animal_2
+    power: 40
+    speedMultiplier: 1
+    icon: {fileID: 0}
+  - prefabName: animal_3
+    power: 60
+    speedMultiplier: 1
+    icon: {fileID: 0}
+  - prefabName: animal_4
+    power: 80
+    speedMultiplier: 1
+    icon: {fileID: 0}
