@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9d14c30856490b8aa59f6a19028e29, type: 3}
+  m_Name: LeopardA_AnimalData
+  m_EditorClassIdentifier: 
+  animals:
+  - animalName: animal_0
+    prefab: {fileID: 5243753375654696879, guid: bba37d4c3ecca432286af48c0695018e, type: 3}
+    moveSpeed: 4
+    strength: 10
+    animalSprite: {fileID: 21300000, guid: 8a2b94c9ea9aa45a2925114a66607f03, type: 3}
+    animalLevel: 1
+  - animalName: animal_1
+    prefab: {fileID: 6719885541063833469, guid: 695ededeba1a3489bbbf7504bf933ed1, type: 3}
+    moveSpeed: 4
+    strength: 20
+    animalSprite: {fileID: 21300000, guid: 8a2b94c9ea9aa45a2925114a66607f03, type: 3}
+    animalLevel: 2
+  - animalName: animal_2
+    prefab: {fileID: 501957685879741868, guid: 4d1caad77e6fa4a8d9966d2c36391679, type: 3}
+    moveSpeed: 4
+    strength: 40
+    animalSprite: {fileID: 21300000, guid: 8a2b94c9ea9aa45a2925114a66607f03, type: 3}
+    animalLevel: 3
+  - animalName: animal_3
+    prefab: {fileID: 2590115427934670433, guid: 062cc957e9da2454094a3f53629c0579, type: 3}
+    moveSpeed: 4
+    strength: 60
+    animalSprite: {fileID: 21300000, guid: 8a2b94c9ea9aa45a2925114a66607f03, type: 3}
+    animalLevel: 4
+  - animalName: animal_4
+    prefab: {fileID: 4439037054240904242, guid: 4255c1c61258e4d5989eb369eafd75b4, type: 3}
+    moveSpeed: 4
+    strength: 80
+    animalSprite: {fileID: 21300000, guid: 8a2b94c9ea9aa45a2925114a66607f03, type: 3}
+    animalLevel: 5

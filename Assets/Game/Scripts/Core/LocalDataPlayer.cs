@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game.Scripts.GameData;
 using Magi.Scripts.GameData;
 using Magi.Scripts.Utils;
@@ -8,8 +9,8 @@ using Tuns.Base;
 public class LocalDataPlayer : Singleton<LocalDataPlayer>
 {
     public bool isFistTime = true;
-    public AnimalData AnimalData;
-    
+    public AnimalDatabaseLocal[] AnimalDataLocal;
+
     private PlayerData playerData;
     private readonly object _lock = new();
     private List<LobbyPlayerData> lobbyPlayerData = new List<LobbyPlayerData>();
@@ -39,10 +40,10 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
 
     private PlayerData InitDefaultPlayerData()
     {
-        string defaultSkin = "char_1";
+        string defaultSkin = "fox";
         var data = new PlayerData
         {
-            Coin = 500,
+            Coin = 500000,
             MusicStatus = true,
             SfxStatus = true,
             SfxVolume = 1f,
@@ -58,7 +59,7 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
 
     public void AddSkin(string skinID)
     {
-        if(PlayerData.Skins.Contains(skinID)) return;
+        if (PlayerData.Skins.Contains(skinID)) return;
         PlayerData.Skins.Add(skinID);
         SaveData();
     }
@@ -76,7 +77,7 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
 
     public string GetCurrentSkin()
     {
-        return PlayerData.SelectedSkin; 
+        return PlayerData.SelectedSkin;
     }
 
     public void AddCoin(int amount)
@@ -130,5 +131,20 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
         SaveData();
         OnSoundChangeStatus?.Invoke(PlayerData.MusicStatus, PlayerData.SfxStatus);
     }
-    
+
+    public AnimalData GetAnimalData(string animalID)
+    {
+        var data = AnimalDataLocal.FirstOrDefault(x => x.animalName == animalID);
+        if (data != null)
+        {
+            return data.animalData;
+        }
+        return null;
+    }
+
+    public AnimalDatabaseLocal GetCurrentAnimalData()
+    {
+        string skinId = PlayerData.SelectedSkin;
+        return AnimalDataLocal.FirstOrDefault(x => x.animalID == skinId);
+    }
 }

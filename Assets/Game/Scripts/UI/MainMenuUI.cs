@@ -1,5 +1,6 @@
 using System;
 using Game.Scripts;
+using Magi.Scripts.GameData;
 using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
@@ -9,20 +10,24 @@ namespace Game.Scripts
 {
     public class MainMenuUI : MonoBehaviour
     {
-        [SerializeField] private GameObject splashArtGo;
-        [SerializeField] private Button startButton;
+        [SerializeField] private GameObject firstPanel;
+        [SerializeField] private GameObject secondPanel;
+        
+        [SerializeField] private Button startSplashArtButton;
+        [SerializeField] private Button playGameButton;
         
         [SerializeField] private TextMeshProUGUI coinText;
         private LocalDataPlayer LocalData => LocalDataPlayer.Instance;
         
         void Start()
         {
-            startButton.onClick.AddListener(SplashArtOnClick);
-            splashArtGo.SetActive(LocalData.isFistTime);
+            startSplashArtButton.onClick.AddListener(SplashArtOnClick);
+            playGameButton.onClick.AddListener(PlayGameOnClick);
+            firstPanel.SetActive(LocalData.isFistTime);
+            secondPanel.SetActive(!LocalData.isFistTime);
 
             LocalData.OnCoinChanged += CoinUpdate;
             CoinUpdate(LocalData.PlayerData.Coin);
-            //Debug.Log(JsonConvert.SerializeObject(LocalData.levelMissionData));
             
             SoundSystem.Instance.PlayMusic("main_menu_music");
         }
@@ -35,7 +40,13 @@ namespace Game.Scripts
         private void SplashArtOnClick()
         {
             LocalData.isFistTime = false;
-            splashArtGo.SetActive(false);
+            firstPanel.SetActive(false);
+            secondPanel.SetActive(true);
+        }
+        
+        private void PlayGameOnClick()
+        {
+            SceneLoaderSystem.Instance.LoadScene(SceneConst.GameScene);
         }
 
         private void CoinUpdate(int coin)

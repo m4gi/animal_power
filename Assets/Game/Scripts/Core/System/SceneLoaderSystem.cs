@@ -1,4 +1,5 @@
 using System.Collections;
+using Magi.Scripts.GameData;
 using Tuns.Base;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ namespace Game.Scripts
             if (progressBar != null)
                 progressBar.value = 0;
             Application.targetFrameRate = 60;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(SceneConst.MainScene);
         }
 
         public void LoadScene(string sceneName)

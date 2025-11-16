@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Game.Scripts.GameData;
+using MyPooler;
 using Tuns.Base;
 using UnityEngine;
 
@@ -7,10 +8,6 @@ namespace Game.Scripts
 {
     public class SummonManager : Singleton<SummonManager>
     {
-        public AnimalData database;
-
-        private float[] lastSummonTime = new float[50];
-        
         public bool Summon(Team team, Lane lane, AnimalConfig cfg)
         {
             if (lane.IsSpawnBlocked(team))

@@ -84,7 +84,7 @@ namespace Game.Scripts
             stackA.Clear();
             stackB.Clear();
 
-            var all = FindObjectsOfType<AnimalUnit>();
+            var all = FindObjectsByType<AnimalUnit>(FindObjectsSortMode.None);
             foreach (var u in all)
             {
                 if (u != null && u.lane == this)

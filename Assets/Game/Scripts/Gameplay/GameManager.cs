@@ -1,4 +1,5 @@
 using System;
+using Game.Scripts.GameData;
 using Tuns.Base;
 using UnityEngine;
 
@@ -19,10 +20,19 @@ namespace Game.Scripts
 
         [Header("Match Settings")] public float matchDuration = 300f;
         private float timeRemaining;
+        
+        [Header("Database Settings")]
+        public CardManager cardManager;
 
         protected override void AwakeSingleton()
         {
             base.AwakeSingleton();
+            if (LocalDataPlayer.Instance != null)
+            {
+                var data =  LocalDataPlayer.Instance.GetCurrentAnimalData();
+                cardManager.playerDeck = data.animalData;
+                cardManager.aiDeck = data.animalData;
+            }
             ResetHP();
         }
 

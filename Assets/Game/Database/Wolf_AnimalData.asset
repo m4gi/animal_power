@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9d14c30856490b8aa59f6a19028e29, type: 3}
+  m_Name: Wolf_AnimalData
+  m_EditorClassIdentifier: 
+  animals:
+  - animalName: animal_0
+    prefab: {fileID: 5243753375654696879, guid: f057ce6b437cf4b6d8ebd8d9706d2017, type: 3}
+    moveSpeed: 4
+    strength: 10
+    animalSprite: {fileID: 21300000, guid: 8bd0f33724b114feb89681cac181f518, type: 3}
+    animalLevel: 1
+  - animalName: animal_1
+    prefab: {fileID: 6719885541063833469, guid: 19c849176576446efb37837b1c8be798, type: 3}
+    moveSpeed: 4
+    strength: 20
+    animalSprite: {fileID: 21300000, guid: 8bd0f33724b114feb89681cac181f518, type: 3}
+    animalLevel: 2
+  - animalName: animal_2
+    prefab: {fileID: 501957685879741868, guid: 6243a56ff2f2b4954a9e0944324bf94c, type: 3}
+    moveSpeed: 4
+    strength: 40
+    animalSprite: {fileID: 21300000, guid: 8bd0f33724b114feb89681cac181f518, type: 3}
+    animalLevel: 3
+  - animalName: animal_3
+    prefab: {fileID: 2590115427934670433, guid: b3193b9fcb7c74ffa826be003853ea8c, type: 3}
+    moveSpeed: 4
+    strength: 60
+    animalSprite: {fileID: 21300000, guid: 8bd0f33724b114feb89681cac181f518, type: 3}
+    animalLevel: 4
+  - animalName: animal_4
+    prefab: {fileID: 4439037054240904242, guid: ab599038ae069449082c31b65f2b7c3c, type: 3}
+    moveSpeed: 4
+    strength: 80
+    animalSprite: {fileID: 21300000, guid: 8bd0f33724b114feb89681cac181f518, type: 3}
+    animalLevel: 5
