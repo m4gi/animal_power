@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8e858031dbdea3e42b64114e6b2e1c44
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189414
+  packageName: My Pooler - Object Pooling System
+  packageVersion: 1.2
+  assetPath: Assets/MyPooler/Demo/Prefabs/Cube.prefab
+  uploadId: 443971

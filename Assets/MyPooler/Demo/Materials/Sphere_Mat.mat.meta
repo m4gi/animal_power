@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a33501931aa845e4b964b832e3e1f898
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189414
+  packageName: My Pooler - Object Pooling System
+  packageVersion: 1.2
+  assetPath: Assets/MyPooler/Demo/Materials/Sphere_Mat.mat
+  uploadId: 443971

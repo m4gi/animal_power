@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5d661e45c48980e439c87fbdd3db5036
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189414
+  packageName: My Pooler - Object Pooling System
+  packageVersion: 1.2
+  assetPath: Assets/MyPooler/Readme.txt
+  uploadId: 443971

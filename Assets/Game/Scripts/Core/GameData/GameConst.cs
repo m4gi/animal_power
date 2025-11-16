@@ -1,8 +1,16 @@
+using UnityEngine;
+
 namespace Magi.Scripts.GameData
 {
     public class GameConst
     {
-        
+    }
+    
+    public static class AnimatorConst
+    {
+        public static readonly int WalkTrigger = Animator.StringToHash("WalkTrigger");
+        public static readonly int AttackTrigger = Animator.StringToHash("AttackTrigger");
+        public static readonly int DieTrigger = Animator.StringToHash("DieTrigger");
     }
 
     public class SceneConst

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5517461093777312941}
   - component: {fileID: 7740165316120216380}
   - component: {fileID: 8243414115442612384}
-  - component: {fileID: 7678341352664027753}
-  - component: {fileID: 4248986211066601560}
+  - component: {fileID: 3978142594034780415}
   m_Layer: 0
   m_Name: fox_animal_1
   m_TagString: Untagged
@@ -80,11 +79,11 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7678341352664027753
+--- !u!114 &3978142594034780415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,26 +92,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5243753375654696879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12303e17a2e84b2f95977d19a0685e27, type: 3}
+  m_Script: {fileID: 11500000, guid: 775d490daf594bfca45dc02c14400f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
-  isPlayer: 1
-  speed: 3
-  formationSpacing: 1.5
-  leader: {fileID: 0}
---- !u!114 &4248986211066601560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5243753375654696879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a5a59c0c944a5e97180bfc330d8881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  lane: {fileID: 0}
+  team: 0
+  moveSpeed: 2
+  strength: 0
+  animator: {fileID: 521595214961283078}
 --- !u!1001 &6097254704905778990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,5 +176,10 @@ PrefabInstance:
 --- !u!4 &51700586056647429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6064767264474461227, guid: dd1c1a05c9cbf2c40830628181d9c669, type: 3}
+  m_PrefabInstance: {fileID: 6097254704905778990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &521595214961283078 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6026054675708733224, guid: dd1c1a05c9cbf2c40830628181d9c669, type: 3}
   m_PrefabInstance: {fileID: 6097254704905778990}
   m_PrefabAsset: {fileID: 0}

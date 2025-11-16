@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dede107ede7eb7d42ba16166ec801b77
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189414
+  packageName: My Pooler - Object Pooling System
+  packageVersion: 1.2
+  assetPath: Assets/MyPooler/Demo/Scripts/Spawner.cs
+  uploadId: 443971

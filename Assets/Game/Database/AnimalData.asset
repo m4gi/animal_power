@@ -13,23 +13,33 @@ MonoBehaviour:
   m_Name: AnimalData
   m_EditorClassIdentifier: 
   animals:
-  - prefabName: animal_0
-    power: 10
-    speedMultiplier: 1
-    icon: {fileID: 0}
-  - prefabName: animal_1
-    power: 20
-    speedMultiplier: 1
-    icon: {fileID: 0}
-  - prefabName: animal_2
-    power: 40
-    speedMultiplier: 1
-    icon: {fileID: 0}
-  - prefabName: animal_3
-    power: 60
-    speedMultiplier: 1
-    icon: {fileID: 0}
-  - prefabName: animal_4
-    power: 80
-    speedMultiplier: 1
-    icon: {fileID: 0}
+  - animalName: animal_0
+    prefab: {fileID: 5243753375654696879, guid: 320d73cade0c443f395ffc5237eaae31, type: 3}
+    moveSpeed: 4
+    strength: 10
+    animalSprite: {fileID: 0}
+    animalLevel: 1
+  - animalName: animal_1
+    prefab: {fileID: 6719885541063833469, guid: 43e14be3fcb3d48ccb2610073ac1e173, type: 3}
+    moveSpeed: 4
+    strength: 20
+    animalSprite: {fileID: 0}
+    animalLevel: 2
+  - animalName: animal_2
+    prefab: {fileID: 501957685879741868, guid: 144b5e914efe648cd91ce48746a0d86f, type: 3}
+    moveSpeed: 4
+    strength: 40
+    animalSprite: {fileID: 0}
+    animalLevel: 3
+  - animalName: animal_3
+    prefab: {fileID: 2590115427934670433, guid: 1184836d1eca4458d8ec6a93bc3132c2, type: 3}
+    moveSpeed: 4
+    strength: 60
+    animalSprite: {fileID: 0}
+    animalLevel: 4
+  - animalName: animal_4
+    prefab: {fileID: 4439037054240904242, guid: 855780cee7ed74930a3dc8e3e64ebde2, type: 3}
+    moveSpeed: 4
+    strength: 80
+    animalSprite: {fileID: 0}
+    animalLevel: 5

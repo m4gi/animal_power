@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c964187e9f3a38346a90ad9969af6cfe
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189414
+  packageName: My Pooler - Object Pooling System
+  packageVersion: 1.2
+  assetPath: Assets/MyPooler/Prefabs/ObjectPooler.prefab
+  uploadId: 443971

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -12,9 +13,9 @@ TagManager:
   - Water
   - UI
   - Lane
-  - 
-  - 
-  - 
+  - CentralSheep
+  - PlayerSheep
+  - OpponentSheep
   - 
   - 
   - 

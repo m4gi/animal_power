@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6befe234ec1119d438dfe4329ad32b51
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189414
+  packageName: My Pooler - Object Pooling System
+  packageVersion: 1.2
+  assetPath: Assets/MyPooler/Demo/Scripts/GenericObject.cs
+  uploadId: 443971
