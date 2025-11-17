@@ -43,7 +43,7 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
         string defaultSkin = "fox";
         var data = new PlayerData
         {
-            Coin = 500000,
+            Coin = 0,
             MusicStatus = true,
             SfxStatus = true,
             SfxVolume = 1f,

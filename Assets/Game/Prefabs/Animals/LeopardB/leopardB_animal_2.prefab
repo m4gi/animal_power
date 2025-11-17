@@ -99,7 +99,7 @@ MonoBehaviour:
   team: 0
   moveSpeed: 2
   strength: 0
-  animator: {fileID: 0}
+  animator: {fileID: 6714352057284886288}
 --- !u!1 &7711971281108404940
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,5 +192,10 @@ PrefabInstance:
 --- !u!4 &6531506859588676293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5232516286521478126, guid: 56b35b1edd470f0418877252f22930e6, type: 3}
+  m_PrefabInstance: {fileID: 1313137068246851883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6714352057284886288 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5699050980358790715, guid: 56b35b1edd470f0418877252f22930e6, type: 3}
   m_PrefabInstance: {fileID: 1313137068246851883}
   m_PrefabAsset: {fileID: 0}
