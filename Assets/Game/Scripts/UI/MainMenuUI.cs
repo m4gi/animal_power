@@ -29,7 +29,7 @@ namespace Game.Scripts
             LocalData.OnCoinChanged += CoinUpdate;
             CoinUpdate(LocalData.PlayerData.Coin);
             
-            SoundSystem.Instance.PlayMusic("main_menu_music");
+            SoundSystem.Instance.PlayMusic(MusicConst.MainMenuMusic);
         }
 
         private void OnDestroy()

@@ -1,5 +1,6 @@
 using System;
 using Game.Scripts.GameData;
+using Magi.Scripts.GameData;
 using Tuns.Base;
 using UnityEngine;
 
@@ -23,6 +24,9 @@ namespace Game.Scripts
         
         [Header("Database Settings")]
         public CardManager cardManager;
+        
+        [Header("UI")]
+        public ResultPanelUI resultPanel;
 
         protected override void AwakeSingleton()
         {
@@ -42,6 +46,8 @@ namespace Game.Scripts
 
             UIManager.Instance.UpdateHP(teamAHP, teamBHP);
             UIManager.Instance.UpdateTimer(timeRemaining);
+            
+            SoundSystem.Instance.PlayMusic(MusicConst.MainGameMusic);
         }
 
         void ResetHP()
@@ -99,7 +105,8 @@ namespace Game.Scripts
                 teamBHP -= hpPerGoal;
                 Debug.Log($"Team B takes damage! HP = {teamBHP}");
             }
-
+            
+            SoundSystem.Instance.PlaySFX(SFXConst.HitBase);
             lane.ResetLane();
 
             if (teamAHP <= 0 || teamBHP <= 0)
@@ -117,25 +124,30 @@ namespace Game.Scripts
         {
             gameEnded = true;
             string winner = (teamAHP <= 0) ? "TEAM B" : "TEAM A";
-
+            MatchResult matchResult = teamAHP > 0 ? MatchResult.Win : MatchResult.Lose;
             Debug.Log($"GAME OVER! WINNER: {winner}");
+            resultPanel.gameObject.SetActive(true);
+            resultPanel.Show(matchResult);
         }
 
         void EndMatchByTimer()
         {
             gameEnded = true;
-
+            resultPanel.gameObject.SetActive(true);
             if (teamAHP > teamBHP)
             {
                 // UIManager.Instance.ShowMatchResult("YOU WIN!");
+                resultPanel.Show(MatchResult.Win);
             }
             else if (teamBHP > teamAHP)
             {
                 //UIManager.Instance.ShowMatchResult("YOU LOSE!");
+                resultPanel.Show(MatchResult.Lose);
             }
             else
             {
                 //UIManager.Instance.ShowMatchResult("DRAW!");
+                resultPanel.Show(MatchResult.Draw);
             }
         }
 

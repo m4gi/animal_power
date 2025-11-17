@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Game.Scripts.GameData;
+using Magi.Scripts.GameData;
 using MyPooler;
 using Tuns.Base;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Game.Scripts
             AnimalUnit unit = go.GetComponent<AnimalUnit>();
             unit.Init(lane, team, cfg);
             
+            SoundSystem.Instance.PlaySFX(SFXConst.SpawnAnimal);
             return true;
         }
     }

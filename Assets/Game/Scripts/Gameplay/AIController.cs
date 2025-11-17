@@ -27,6 +27,8 @@ namespace Game.Scripts
 
         void Update()
         {
+            if (GameManager.Instance.gameEnded) return;
+
             if (Time.time < nextSummonTime)
                 return;
 
@@ -77,7 +79,7 @@ namespace Game.Scripts
                 : lane.homeB.position.z;
 
             float distToAIHome = Mathf.Abs(cz - homeZ);
-            
+
             float myForce = lane.GetForce(aiTeam);
             float enemyForce = lane.GetForce(aiTeam == Team.A ? Team.B : Team.A);
 
@@ -86,7 +88,7 @@ namespace Game.Scripts
 
 
             float enemyPush = Mathf.Max(0, enemyForce - myForce);
-            
+
             float advantage = Mathf.Max(0, myForce - enemyForce);
 
             // -----------------------------
