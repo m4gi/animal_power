@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: button_shop
       objectReference: {fileID: 0}
+    - target: {fileID: 2463461167593152639, guid: 1db0a6afbd196491a8c6e37c80512651, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3010744585330497275, guid: 1db0a6afbd196491a8c6e37c80512651, type: 3}
       propertyPath: m_text
       value: SHOP
@@ -2950,8 +2954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309.69397, y: -277}
-  m_SizeDelta: {x: 255.0979, y: 70.7839}
+  m_AnchoredPosition: {x: 529.3, y: -276.66205}
+  m_SizeDelta: {x: 167.053, y: 127.4598}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471652888
 MonoBehaviour:
@@ -3024,7 +3028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &475992184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3841,7 +3845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -51.466, y: 2.0606}
+  m_AnchoredPosition: {x: -51.466, y: -33.5}
   m_SizeDelta: {x: 51.466003, y: 51.466}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &592562362
@@ -4213,7 +4217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The player next animal will be released.
+  m_text: The current energy bar for spawning animals.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca247a3092b7b404dbaa6f4ab43e450c, type: 2}
   m_sharedMaterial: {fileID: -403277894513911722, guid: ca247a3092b7b404dbaa6f4ab43e450c, type: 2}
@@ -9028,8 +9032,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap on a lane to spawn a unit. When the unit reaches a barrel, it will
-    push toward the opponent. When the barrel hits the enemy base, it deals damage.
+  m_text: Drag an Animal onto a lane to spawn it. When the unit reaches the barrel,
+    it will push toward the opponent. When the barrel hits the enemy base, it deals
+    damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca247a3092b7b404dbaa6f4ab43e450c, type: 2}
   m_sharedMaterial: {fileID: -403277894513911722, guid: ca247a3092b7b404dbaa6f4ab43e450c, type: 2}

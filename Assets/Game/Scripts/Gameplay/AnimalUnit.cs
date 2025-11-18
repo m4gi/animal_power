@@ -31,6 +31,9 @@ namespace Game.Scripts
         private BoxCollider col;
         private float snapDist;
         private string unitName;
+        
+        public string UnitName => unitName;
+        
         void Awake()
         {
             col = GetComponent<BoxCollider>();
@@ -116,7 +119,7 @@ namespace Game.Scripts
 
         public void OnRequestedFromPool()
         {
-            
+            CurrentState = AnimalState.Running;
         }
 
         public void DiscardToPool()

@@ -31,12 +31,12 @@ namespace Game.Scripts
         protected override void AwakeSingleton()
         {
             base.AwakeSingleton();
-            if (LocalDataPlayer.Instance != null)
-            {
-                var data =  LocalDataPlayer.Instance.GetCurrentAnimalData();
-                cardManager.playerDeck = data.animalData;
-                cardManager.aiDeck = data.animalData;
-            }
+            // if (LocalDataPlayer.Instance != null)
+            // {
+            //     var data =  LocalDataPlayer.Instance.GetCurrentAnimalData();
+            //     cardManager.playerDeck = data.animalData;
+            //     cardManager.aiDeck = data.animalData;
+            // }
             ResetHP();
         }
 
@@ -47,7 +47,7 @@ namespace Game.Scripts
             UIManager.Instance.UpdateHP(teamAHP, teamBHP);
             UIManager.Instance.UpdateTimer(timeRemaining);
             
-            SoundSystem.Instance.PlayMusic(MusicConst.MainGameMusic);
+            SoundSystem.Instance?.PlayMusic(MusicConst.MainGameMusic);
         }
 
         void ResetHP()
@@ -106,7 +106,7 @@ namespace Game.Scripts
                 Debug.Log($"Team B takes damage! HP = {teamBHP}");
             }
             
-            SoundSystem.Instance.PlaySFX(SFXConst.HitBase);
+            SoundSystem.Instance?.PlaySFX(SFXConst.HitBase);
             lane.ResetLane();
 
             if (teamAHP <= 0 || teamBHP <= 0)
@@ -114,7 +114,7 @@ namespace Game.Scripts
                 EndMatch();
             }
 
-            UIManager.Instance.UpdateHP(teamAHP, teamBHP);
+            UIManager.Instance?.UpdateHP(teamAHP, teamBHP);
         }
 
         // ------------------------------------------------------

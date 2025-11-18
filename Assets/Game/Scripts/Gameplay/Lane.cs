@@ -1,3 +1,5 @@
+using MyPooler;
+
 namespace Game.Scripts
 {
     using UnityEngine;
@@ -43,7 +45,8 @@ namespace Game.Scripts
             a.CurrentState = AnimalState.Dead;
             stackA.Remove(a);
             stackB.Remove(a);
-            Destroy(a.gameObject);
+            ObjectPooler.Instance.ReturnToPool(a.UnitName, a.gameObject);
+            //Destroy(a.gameObject);
         }
 
         public AnimalUnit GetFrontTeammate(AnimalUnit a)

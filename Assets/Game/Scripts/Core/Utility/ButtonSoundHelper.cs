@@ -19,6 +19,6 @@ public class ButtonSoundHelper : MonoBehaviour
 
     private void PlayClickButton()
     {
-        SoundSystem.Instance.PlaySFX("button_click");
+        SoundSystem.Instance?.PlaySFX("button_click");
     }
 }
