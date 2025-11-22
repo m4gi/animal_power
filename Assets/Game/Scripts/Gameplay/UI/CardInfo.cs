@@ -1,3 +1,4 @@
+using Coffee.UIEffects;
 using Game.Scripts.GameData;
 using TMPro;
 using UnityEngine;
@@ -12,9 +13,15 @@ namespace Game.Scripts
         [SerializeField] private Image cooldownMask;
         [SerializeField] private TextMeshProUGUI energyCostText;
         [SerializeField] private ObjectSettings objectSettings;
+        [SerializeField] private UIEffect uiEffect;
+
+        private int costEnergy;
+
+        private bool tempState = false;
 
         public void InitCard(AnimalConfig config)
         {
+            costEnergy = config.animalLevel;
             cooldownMask.fillAmount = 0;
             itemImage.sprite = config.animalSprite;
             for (int i = 0; i < groupStar.Length; i++)
@@ -25,6 +32,18 @@ namespace Game.Scripts
             energyCostText.text = $"{config.animalLevel}";
             if (objectSettings != null)
                 objectSettings.Id = config.animalName;
+        }
+
+        public void SetStateEffect(int currentEnergy)
+        {
+            bool isActive = currentEnergy >= costEnergy;
+            if (isActive == tempState) return;
+            tempState = isActive;
+
+            if (uiEffect != null)
+            {
+                uiEffect.enabled = isActive;
+            }
         }
 
         public void UpdateCooldownMask(float amount)

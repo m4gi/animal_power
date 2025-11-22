@@ -18,6 +18,9 @@ namespace Game.Scripts
         
         [Header("Settings")]
         public float cooldownAnimSpeed = 8f;
+        
+        [Header("Energy Manager")]
+        public EnergyManager playerEnergyManager;
 
         private float globalCooldownDurationPlayer = 0f;
         private float globalCooldownEndTimePlayer = 0f;
@@ -28,12 +31,22 @@ namespace Game.Scripts
         private void Update()
         {
             UpdateCooldownUI_Player();
+            UpdateUIActive_Player();
             UpdateCooldownUI_Enemy();
         }
-        
+
+        private void UpdateUIActive_Player()
+        {
+            int currentEnergy = Mathf.FloorToInt(playerEnergyManager.currentEnergy);
+            foreach (CardInfo cardInfo in playerCardSlots)
+            {
+                cardInfo.SetStateEffect(currentEnergy);
+            }
+        }
+
         public void UpdatePlayerCardUI_Player(AnimalConfig[] slots)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < playerCardSlots.Length; i++)
             {
                 if (slots[i] == null) continue;
 
@@ -114,6 +127,12 @@ namespace Game.Scripts
             int m = Mathf.FloorToInt(seconds / 60);
             int s = Mathf.FloorToInt(seconds % 60);
             timerText.text = $"Time:\n{m:00}:{s:00}";
+        }
+
+        public void InitHP(int initialHP)
+        {
+            playerHealthSlider.InitSlider(initialHP);
+            enemyHealthSlider.InitSlider(initialHP);
         }
         
         public void UpdateHP(int pHP, int eHP)

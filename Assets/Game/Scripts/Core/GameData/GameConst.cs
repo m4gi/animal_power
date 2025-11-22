@@ -11,6 +11,7 @@ namespace Magi.Scripts.GameData
         public static readonly int WalkTrigger = Animator.StringToHash("WalkTrigger");
         public static readonly int AttackTrigger = Animator.StringToHash("AttackTrigger");
         public static readonly int DieTrigger = Animator.StringToHash("DieTrigger");
+        public static readonly int SkillTrigger = Animator.StringToHash("SkillTrigger");
     }
 
     public class SceneConst

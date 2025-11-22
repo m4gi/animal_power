@@ -99,6 +99,7 @@ public class ObjectSettings : MonoBehaviour {
 	public UnityEvent OnDroppedSuccessfully;
 	public UnityEvent OnReplaced;
 	public UnityEvent<Vector3, string> OnDroppedOnPos;
+	public UnityEvent OnFinalDrop;
 
 	void Awake()
 	{
@@ -273,6 +274,8 @@ public class ObjectSettings : MonoBehaviour {
 			OnDroppedOnPos?.Invoke(GetMousePos(), Id);
 		}
 		thisRT.SetParent (thisParent);
+		
+		OnFinalDrop?.Invoke();
 	}
 
 	void PanelDropTools (int i) {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7087159461401131726}
   - component: {fileID: 1036469147585184834}
   - component: {fileID: -2575548253592071077}
+  - component: {fileID: 3112193404105075247}
   m_Layer: 0
   m_Name: leopardA_animal_4
   m_TagString: Untagged
@@ -100,6 +101,21 @@ MonoBehaviour:
   moveSpeed: 2
   strength: 0
   animator: {fileID: 7629712032184631233}
+  skill: {fileID: 3112193404105075247}
+--- !u!114 &3112193404105075247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590115427934670433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe37850cb8ed43f58245da7980ee018e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 2
+  multiplier: 15
 --- !u!1 &3658716602005388208
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +210,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1267941507384690888, guid: 60eb02f0eb70f5447b3dd172721dc1c0, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590363753175194346, guid: 60eb02f0eb70f5447b3dd172721dc1c0, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1933014807675605618, guid: 60eb02f0eb70f5447b3dd172721dc1c0, type: 3}

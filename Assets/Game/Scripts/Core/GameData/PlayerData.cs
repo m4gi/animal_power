@@ -12,6 +12,7 @@ namespace Magi.Scripts.GameData
         public float MusicVolume { get; set; }
         public List<string> Skins { get; set; }
         public string SelectedSkin { get; set; }
+        public int CurrentLevel  { get; set; }
     }
 
     [System.Serializable]

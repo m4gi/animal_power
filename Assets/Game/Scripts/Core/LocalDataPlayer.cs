@@ -10,6 +10,8 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
 {
     public bool isFistTime = true;
     public AnimalDatabaseLocal[] AnimalDataLocal;
+    public LevelDataConfig LevelDataConfigs;
+    public int currentLevel;
 
     private PlayerData playerData;
     private readonly object _lock = new();
@@ -53,6 +55,7 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
                 defaultSkin,
             },
             SelectedSkin = defaultSkin,
+            CurrentLevel = 0
         };
         return data;
     }
@@ -146,5 +149,16 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
     {
         string skinId = PlayerData.SelectedSkin;
         return AnimalDataLocal.FirstOrDefault(x => x.animalID == skinId);
+    }
+
+    public LevelData GetCurrentLevelData()
+    {
+        return LevelDataConfigs.levels[currentLevel];
+    }
+
+    public void UnlockNextLevel()
+    {
+        PlayerData.CurrentLevel++;
+        SaveData();
     }
 }

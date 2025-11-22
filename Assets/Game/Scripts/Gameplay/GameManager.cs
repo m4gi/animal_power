@@ -27,6 +27,8 @@ namespace Game.Scripts
         
         [Header("UI")]
         public ResultPanelUI resultPanel;
+        
+        private LocalDataPlayer LocalData => LocalDataPlayer.Instance;
 
         protected override void AwakeSingleton()
         {
@@ -37,13 +39,19 @@ namespace Game.Scripts
             //     cardManager.playerDeck = data.animalData;
             //     cardManager.aiDeck = data.animalData;
             // }
+            if (LocalData != null)
+            {
+                var dataLevel = LocalData.GetCurrentLevelData();
+                maxHP = dataLevel.maxHealth * hpPerGoal;
+                matchDuration = dataLevel.time;
+            }
             ResetHP();
         }
 
         private void Start()
         {
             timeRemaining = matchDuration;
-
+            UIManager.Instance.InitHP(maxHP);
             UIManager.Instance.UpdateHP(teamAHP, teamBHP);
             UIManager.Instance.UpdateTimer(timeRemaining);
             

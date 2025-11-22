@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade396aab09c43f796a7b1a1350ee62a, type: 3}
+  m_Name: LevelDataConfig
+  m_EditorClassIdentifier: 
+  levels:
+  - level: 0
+    maxHealth: 1
+    time: 300
+  - level: 1
+    maxHealth: 2
+    time: 300
+  - level: 2
+    maxHealth: 3
+    time: 300
+  - level: 3
+    maxHealth: 4
+    time: 300
+  - level: 4
+    maxHealth: 5
+    time: 300
+  - level: 5
+    maxHealth: 6
+    time: 300
+  - level: 6
+    maxHealth: 7
+    time: 300
+  - level: 7
+    maxHealth: 8
+    time: 300
+  - level: 8
+    maxHealth: 9
+    time: 300
+  - level: 9
+    maxHealth: 10
+    time: 300
+  - level: 10
+    maxHealth: 11
+    time: 300
+  - level: 11
+    maxHealth: 12
+    time: 300
+  - level: 12
+    maxHealth: 13
+    time: 300
+  - level: 13
+    maxHealth: 14
+    time: 300
+  - level: 14
+    maxHealth: 15
+    time: 300
+  - level: 15
+    maxHealth: 16
+    time: 300
+  - level: 16
+    maxHealth: 17
+    time: 300
+  - level: 17
+    maxHealth: 18
+    time: 300
+  - level: 18
+    maxHealth: 19
+    time: 300
+  - level: 19
+    maxHealth: 20
+    time: 300
+  - level: 20
+    maxHealth: 21
+    time: 300
+  - level: 21
+    maxHealth: 22
+    time: 300
+  - level: 22
+    maxHealth: 23
+    time: 300
+  - level: 23
+    maxHealth: 24
+    time: 300
+  - level: 24
+    maxHealth: 25
+    time: 300
+  - level: 25
+    maxHealth: 26
+    time: 300
+  - level: 26
+    maxHealth: 27
+    time: 300
+  - level: 27
+    maxHealth: 28
+    time: 300
+  - level: 28
+    maxHealth: 29
+    time: 300
+  - level: 29
+    maxHealth: 30
+    time: 300
+  - level: 30
+    maxHealth: 31
+    time: 300
+  - level: 31
+    maxHealth: 32
+    time: 300
+  - level: 32
+    maxHealth: 33
+    time: 300
+  - level: 33
+    maxHealth: 34
+    time: 300
+  - level: 34
+    maxHealth: 35
+    time: 300
+  - level: 35
+    maxHealth: 36
+    time: 300
+  - level: 36
+    maxHealth: 37
+    time: 300
+  - level: 37
+    maxHealth: 38
+    time: 300
+  - level: 38
+    maxHealth: 39
+    time: 300
+  - level: 39
+    maxHealth: 40
+    time: 300
+  - level: 40
+    maxHealth: 41
+    time: 500
+  - level: 41
+    maxHealth: 42
+    time: 500
+  - level: 42
+    maxHealth: 43
+    time: 500
+  - level: 43
+    maxHealth: 44
+    time: 500
+  - level: 44
+    maxHealth: 45
+    time: 500
+  - level: 45
+    maxHealth: 46
+    time: 500
+  - level: 46
+    maxHealth: 47
+    time: 500
+  - level: 47
+    maxHealth: 48
+    time: 500
+  - level: 48
+    maxHealth: 49
+    time: 500
+  - level: 49
+    maxHealth: 50
+    time: 500
+  - level: 50
+    maxHealth: 51
+    time: 500
+  - level: 51
+    maxHealth: 52
+    time: 500
+  - level: 52
+    maxHealth: 53
+    time: 500
+  - level: 53
+    maxHealth: 54
+    time: 500
+  - level: 54
+    maxHealth: 55
+    time: 500
+  - level: 55
+    maxHealth: 56
+    time: 500
+  - level: 56
+    maxHealth: 57
+    time: 500
+  - level: 57
+    maxHealth: 58
+    time: 500
+  - level: 58
+    maxHealth: 59
+    time: 500
+  - level: 59
+    maxHealth: 60
+    time: 500
+  - level: 60
+    maxHealth: 61
+    time: 500
+  - level: 61
+    maxHealth: 62
+    time: 500
+  - level: 62
+    maxHealth: 63
+    time: 500
+  - level: 63
+    maxHealth: 64
+    time: 500
+  - level: 64
+    maxHealth: 65
+    time: 500
+  - level: 65
+    maxHealth: 66
+    time: 500
+  - level: 66
+    maxHealth: 67
+    time: 500
+  - level: 67
+    maxHealth: 68
+    time: 500
+  - level: 68
+    maxHealth: 69
+    time: 500
+  - level: 69
+    maxHealth: 70
+    time: 500
+  - level: 70
+    maxHealth: 71
+    time: 500
+  - level: 71
+    maxHealth: 72
+    time: 500
+  - level: 72
+    maxHealth: 73
+    time: 500
+  - level: 73
+    maxHealth: 74
+    time: 500
+  - level: 74
+    maxHealth: 75
+    time: 500
+  - level: 75
+    maxHealth: 76
+    time: 500
+  - level: 76
+    maxHealth: 77
+    time: 500
+  - level: 77
+    maxHealth: 78
+    time: 500
+  - level: 78
+    maxHealth: 79
+    time: 500
+  - level: 79
+    maxHealth: 80
+    time: 500

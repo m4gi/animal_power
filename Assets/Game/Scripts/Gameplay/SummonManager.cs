@@ -39,6 +39,7 @@ namespace Game.Scripts
 
             // GameObject go = Instantiate(cfg.prefab, spawn.position, spawn.rotation);
             GameObject go = ObjectPooler.Instance.GetFromPool(cfg.animalName, spawn.position, spawn.rotation);
+            GameObject vfx = ObjectPooler.Instance.GetFromPool("spawn_vfx", spawn.position, spawn.rotation);
             go.transform.forward = (team == Team.A) ? Vector3.forward : Vector3.back;
             
             AnimalUnit unit = go.GetComponent<AnimalUnit>();

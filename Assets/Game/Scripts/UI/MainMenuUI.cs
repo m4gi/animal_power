@@ -22,7 +22,7 @@ namespace Game.Scripts
         void Start()
         {
             startSplashArtButton.onClick.AddListener(SplashArtOnClick);
-            playGameButton.onClick.AddListener(PlayGameOnClick);
+            //playGameButton.onClick.AddListener(PlayGameOnClick);
             firstPanel.SetActive(LocalData.isFistTime);
             secondPanel.SetActive(!LocalData.isFistTime);
 

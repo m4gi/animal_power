@@ -7,13 +7,13 @@ using UnityEngine;
 namespace Game.Scripts
 {
     [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-    public class AnimalUnit : MonoBehaviour, IPooledObject
+    public partial class AnimalUnit : MonoBehaviour, IPooledObject
     {
         public Lane lane;
         public Team team;
         public float moveSpeed;
         public float strength;
-        
+
         private AnimalState state = AnimalState.Running;
 
         public AnimalState CurrentState
@@ -27,13 +27,36 @@ namespace Game.Scripts
         }
 
         public Animator animator;
+        public AnimalSkill skill;
 
         private BoxCollider col;
         private float snapDist;
         private string unitName;
-        
+
         public string UnitName => unitName;
-        
+
+
+        public void Init(Lane laneP, Team teamP, AnimalConfig cfg)
+        {
+            unitName = cfg.animalName;
+            lane = laneP;
+            team = teamP;
+            strength = cfg.strength;
+            moveSpeed = cfg.moveSpeed;
+            CurrentState = AnimalState.Running;
+
+            laneP.JoinLane(this, teamP);
+
+            if (skill != null)
+            {
+                skill.Init(this, laneP, team);
+                if (skill.triggerType == TriggerType.OnSpawn)
+                {
+                    skill.StartCast();
+                }
+            }
+        }
+
         void Awake()
         {
             col = GetComponent<BoxCollider>();
@@ -48,7 +71,7 @@ namespace Game.Scripts
             CheckEnemyCollision();
             CheckStackConditions();
         }
-        
+
         void LateUpdate()
         {
             if (state != AnimalState.Stacking) return;
@@ -93,6 +116,8 @@ namespace Game.Scripts
             if (dzCentral < snapDist)
             {
                 lane.JoinStackAtCurrentPosition(this);
+                if(skill != null && skill.triggerType == TriggerType.OnTouch)
+                    skill?.StartCast();
                 return;
             }
 
@@ -103,6 +128,8 @@ namespace Game.Scripts
                 if (dz < snapDist)
                 {
                     lane.JoinStackBehindTeammate(this, front);
+                    if(skill != null && skill.triggerType == TriggerType.OnTouch)
+                        skill?.StartCast();
                 }
             }
         }
@@ -125,18 +152,14 @@ namespace Game.Scripts
         public void DiscardToPool()
         {
             ObjectPooler.Instance.ReturnToPool(unitName, gameObject);
+            ObjectPooler.Instance.GetFromPool("destroy_vfx", gameObject.transform.position + Vector3.up,
+                Quaternion.identity);
+            if (skill != null)
+            {
+                skill.EndCast();
+            }
         }
 
-        public void Init(Lane laneP, Team teamP, AnimalConfig cfg)
-        {
-            unitName = cfg.animalName;
-            lane = laneP;
-            team = teamP;
-            strength =  cfg.strength;
-            moveSpeed = cfg.moveSpeed;
-            CurrentState = AnimalState.Running;
-        }
-        
         private void UpdateAnimation(AnimalState value)
         {
             if (animator != null)
@@ -152,12 +175,13 @@ namespace Game.Scripts
                     case AnimalState.Dead:
                         animator.SetTrigger(AnimatorConst.DieTrigger);
                         break;
+                    case AnimalState.UseSkill:
+                        animator.SetTrigger(AnimatorConst.SkillTrigger);
+                        break;
                     default:
                         break;
                 }
             }
         }
     }
-    
-    
 }

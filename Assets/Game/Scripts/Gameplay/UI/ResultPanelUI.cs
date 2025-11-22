@@ -53,6 +53,7 @@ namespace Game.Scripts
                 case MatchResult.Win:
                     victoryUI.SetActive(true);
                     coin = winTotalCoin;
+                    LocalData.UnlockNextLevel();
                     break;
                 case MatchResult.Lose:
                     defeatUI.SetActive(true);

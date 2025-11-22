@@ -11,7 +11,7 @@ namespace Game.Scripts
         public AnimalData aiDeck;
 
         [Header("Player Slots")]
-        public AnimalConfig[] playerSlots = new AnimalConfig[3];
+        public AnimalConfig[] playerSlots = new AnimalConfig[5];
 
         [Header("AI Slots")]
         public AnimalConfig[] aiSlots = new AnimalConfig[3];
@@ -27,8 +27,8 @@ namespace Game.Scripts
         // -------------------------
         void InitPlayerSlots()
         {
-            for (int i = 0; i < 3; i++)
-                playerSlots[i] = GetRandomFromPlayerDeck();
+            for (int i = 0; i < playerSlots.Length; i++)
+                playerSlots[i] = GetPlayerDeck(i);
 
             UIManager.Instance.UpdatePlayerCardUI_Player(playerSlots);
         }
@@ -41,6 +41,11 @@ namespace Game.Scripts
             UIManager.Instance.UpdatePlayerCardUI_Enemy(aiSlots);
         }
 
+        public AnimalConfig GetPlayerDeck(int index)
+        {
+            return playerDeck.animals[index];
+        }
+        
         // -------------------------
         // RANDOM
         // -------------------------

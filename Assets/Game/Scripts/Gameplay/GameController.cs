@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Game.Scripts.GameData;
 using Tuns.Base;
@@ -15,6 +16,8 @@ namespace Game.Scripts
 
         public float globalCooldown = 2f;
         private float nextSummonAllowedTime = 0f;
+        
+        private List<string> skillPower = new List<string>();
 
         public void SetAnimalType(int typeID)
         {
@@ -55,7 +58,7 @@ namespace Game.Scripts
                     
                     if (summonManager.Summon(playerTeam, lane, cfg))
                     {
-                        CardManager.Instance.ConsumeAndShiftPlayer();
+                        // CardManager.Instance.ConsumeAndShiftPlayer();
 
                         nextSummonAllowedTime = Time.time + globalCooldown;
 

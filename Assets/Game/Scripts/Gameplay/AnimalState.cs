@@ -4,6 +4,7 @@ namespace Game.Scripts
     {
         Running,
         Stacking,
-        Dead
+        Dead,
+        UseSkill
     }
 }

@@ -17,6 +17,12 @@ namespace Game.Scripts
 
         private Coroutine animRoutine;
 
+        public void InitSlider(int initHP)
+        {
+            _hpSlider.value = initHP;
+            _hpSlider.maxValue = initHP;
+        }
+        
         public void SetHpSlider(float currentHp)
         {
             if (animRoutine != null)
