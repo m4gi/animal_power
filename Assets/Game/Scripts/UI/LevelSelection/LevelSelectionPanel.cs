@@ -11,21 +11,38 @@ namespace Game.Scripts
 
         [SerializeField] private TextMeshProUGUI totalText;
 
-        private List<LevelItem> levelItems = new List<LevelItem>();
+        public List<LevelItem> levelItems = new List<LevelItem>();
 
         private LocalDataPlayer LocalData => LocalDataPlayer.Instance;
 
         private void Awake()
         {
+            var levelData = LocalData.LevelDataConfigs.levels;
             if (levelItems.Count <= 0)
             {
-                var levelData = LocalData.LevelDataConfigs.levels;
                 for (int i = 0; i < levelData.Length; i++)
                 {
                     var levelItem = Instantiate(levelItemPrefab, contentTransform);
                     bool isLocked = i > LocalData.PlayerData.CurrentLevel;
                     levelItem.InitItem(i, isLocked);
                     levelItems.Add(levelItem);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < levelItems.Count; i++)
+                {
+                    var levelItem = levelItems[i];
+                    if (i < levelData.Length)
+                    {
+                        bool isLocked = i > LocalData.PlayerData.CurrentLevel;
+                        levelItem.InitItem(i, isLocked);
+                        levelItem.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        levelItem.gameObject.SetActive(false);
+                    }
                 }
             }
         }
