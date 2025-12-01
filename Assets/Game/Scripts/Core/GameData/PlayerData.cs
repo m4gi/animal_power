@@ -5,6 +5,7 @@ namespace Magi.Scripts.GameData
     [System.Serializable]
     public class PlayerData
     {
+        public int Version { get; set; } = 0;
         public int Coin { get; set; } = 0;
         public bool SfxStatus { get; set; }
         public bool MusicStatus { get; set; }

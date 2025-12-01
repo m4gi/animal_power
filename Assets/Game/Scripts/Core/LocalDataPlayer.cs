@@ -8,6 +8,7 @@ using Tuns.Base;
 
 public class LocalDataPlayer : Singleton<LocalDataPlayer>
 {
+    public int VersionNow = 1;
     public bool isFistTime = true;
     public AnimalDatabaseLocal[] AnimalDataLocal;
     public LevelDataConfig LevelDataConfigs;
@@ -25,12 +26,14 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
         {
             if (playerData != null) return playerData;
 
-            lock (_lock)
+            if (playerData != null) return playerData;
+            playerData = SaveLoadUtils.LoadData<PlayerData>() ?? InitDefaultPlayerData();
+
+            if (playerData.Version != VersionNow)
             {
-                if (playerData != null) return playerData;
-                playerData = SaveLoadUtils.LoadData<PlayerData>() ?? InitDefaultPlayerData();
-                SaveLoadUtils.SaveData(playerData);
+                playerData = InitDefaultPlayerData();
             }
+            SaveLoadUtils.SaveData(playerData);
 
             return playerData;
         }
@@ -45,6 +48,7 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
         string defaultSkin = "fox";
         var data = new PlayerData
         {
+            Version = VersionNow,
             Coin = 0,
             MusicStatus = true,
             SfxStatus = true,
@@ -142,6 +146,7 @@ public class LocalDataPlayer : Singleton<LocalDataPlayer>
         {
             return data.animalData;
         }
+
         return null;
     }
 
