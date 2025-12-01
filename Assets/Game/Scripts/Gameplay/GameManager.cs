@@ -44,6 +44,7 @@ namespace Game.Scripts
                 var dataLevel = LocalData.GetCurrentLevelData();
                 maxHP = dataLevel.maxHealth * hpPerGoal;
                 matchDuration = dataLevel.time;
+                UnlockLane(dataLevel.numberOfLane);
             }
             ResetHP();
         }
@@ -56,6 +57,15 @@ namespace Game.Scripts
             UIManager.Instance.UpdateTimer(timeRemaining);
             
             SoundSystem.Instance?.PlayMusic(MusicConst.MainGameMusic);
+        }
+        
+        private void UnlockLane(int numberOfLane)
+        {
+            for (int i = 0; i < lanes.Length; i++)
+            {
+                var lane = lanes[i];
+                lane.IsLaneLocked = (i > numberOfLane - 1);
+            }
         }
 
         void ResetHP()

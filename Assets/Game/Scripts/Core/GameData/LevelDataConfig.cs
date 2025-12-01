@@ -27,5 +27,6 @@ namespace Game.Scripts.GameData
         public int level;
         public int maxHealth;
         public int time;
+        public int numberOfLane = 5;
     }
 }

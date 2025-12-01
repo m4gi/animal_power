@@ -16,8 +16,15 @@ namespace Game.Scripts
         [Header("AI Slots")]
         public AnimalConfig[] aiSlots = new AnimalConfig[3];
 
+        private int maxCard = 5;
+
         private void Start()
         {
+            if (LocalDataPlayer.Instance != null)
+            {
+                var currentLevel = LocalDataPlayer.Instance.GetCurrentLevelData();
+                maxCard = currentLevel.level < 1 ? 3 : aiDeck.animals.Length;
+            }
             InitPlayerSlots();
             InitAISlots();
         }
@@ -56,7 +63,7 @@ namespace Game.Scripts
 
         public AnimalConfig GetRandomFromAIDeck()
         {
-            return aiDeck.animals[Random.Range(0, aiDeck.animals.Length)];
+            return aiDeck.animals[Random.Range(0, maxCard)];
         }
 
         // -------------------------

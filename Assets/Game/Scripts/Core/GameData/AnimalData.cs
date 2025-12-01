@@ -25,5 +25,6 @@ namespace Game.Scripts.GameData
         public float strength = 1f;
         public Sprite animalSprite;
         public int animalLevel = 1;
+        public string skillDescription;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Game.Scripts.GameData;
 using TMPro;
 using Tuns.Base;
@@ -22,12 +23,36 @@ namespace Game.Scripts
         [Header("Energy Manager")]
         public EnergyManager playerEnergyManager;
 
+        [Header("UI Manager")] 
+        public CardDetailPopup cardDetailPopup;
+        public GameObject newTroopUnlockPopup;
+
         private float globalCooldownDurationPlayer = 0f;
         private float globalCooldownEndTimePlayer = 0f;
         
         private float globalCooldownDurationEnemy = 0f;
         private float globalCooldownEndTimeEnemy = 0f;
-        
+
+        private int maxCard = 5;
+
+        private void Start()
+        {
+            if (LocalDataPlayer.Instance != null)
+            {
+                var currentLevel = LocalDataPlayer.Instance.GetCurrentLevelData();
+                maxCard = currentLevel.level < 1 ? 3 : 5;
+                for (int i = 4; i > maxCard - 1; i--)
+                {
+                    playerCardSlots[i].gameObject.SetActive(false);
+                }
+
+                if (currentLevel.level == 1)
+                {
+                    newTroopUnlockPopup.SetActive(true);
+                }
+            }
+        }
+
         private void Update()
         {
             UpdateCooldownUI_Player();
@@ -38,8 +63,9 @@ namespace Game.Scripts
         private void UpdateUIActive_Player()
         {
             int currentEnergy = Mathf.FloorToInt(playerEnergyManager.currentEnergy);
-            foreach (CardInfo cardInfo in playerCardSlots)
+            for (var i = 0; i < playerCardSlots.Length; i++)
             {
+                var cardInfo = playerCardSlots[i];
                 cardInfo.SetStateEffect(currentEnergy);
             }
         }
@@ -139,6 +165,12 @@ namespace Game.Scripts
         {
             playerHealthSlider.SetHpSlider(pHP);
             enemyHealthSlider.SetHpSlider(eHP);
+        }
+
+        public void ShowCardDetail(AnimalConfig animalConfig)
+        {
+            cardDetailPopup.gameObject.SetActive(true);
+            cardDetailPopup.InitDetail(animalConfig);
         }
     }
 }

@@ -4,13 +4,6 @@ namespace Game.Scripts
 {
     using UnityEngine;
 
-    public enum AIDifficulty
-    {
-        Easy,
-        Normal,
-        Hard
-    }
-
     public class AIController : MonoBehaviour
     {
         [Header("AI Settings")] public Team aiTeam = Team.B;
@@ -36,7 +29,6 @@ namespace Game.Scripts
             if (selectedLane == null)
                 return;
 
-            // card slot 0
             AnimalConfig cfg = deck.aiSlots[0];
 
             // summon
@@ -53,25 +45,31 @@ namespace Game.Scripts
         // -------------------------------------------------------
         Lane ChooseSmartLane()
         {
-            Lane bestLane = null;
+            Lane best = null;
             float bestScore = float.MinValue;
 
-            foreach (Lane lane in laneManager.lanes)
+            foreach (var lane in laneManager.lanes)
             {
-                float score = EvaluateLane(lane);
+                if (lane.IsLaneLocked) 
+                    continue;
 
-                if (score > bestScore)
+                float sc = EvaluateLane(lane);
+                if (sc > bestScore)
                 {
-                    bestScore = score;
-                    bestLane = lane;
+                    bestScore = sc;
+                    best = lane;
                 }
             }
 
-            return bestLane;
+            return best;
         }
+
 
         float EvaluateLane(Lane lane)
         {
+            if (lane.IsLaneLocked)
+                return -99999f;
+
             float cz = lane.central.transform.position.z;
 
             float homeZ = (aiTeam == Team.A)
@@ -81,25 +79,44 @@ namespace Game.Scripts
             float distToAIHome = Mathf.Abs(cz - homeZ);
 
             float myForce = lane.GetForce(aiTeam);
-            float enemyForce = lane.GetForce(aiTeam == Team.A ? Team.B : Team.A);
+            Team enemy = (aiTeam == Team.A) ? Team.B : Team.A;
+            float enemyForce = lane.GetForce(enemy);
 
+            float danger = Mathf.Max(0f, 10f - distToAIHome);
+            float enemyPush = Mathf.Max(0f, enemyForce - myForce);
+            float advantage = Mathf.Max(0f, myForce - enemyForce);
 
-            float danger = Mathf.Max(0, 10f - distToAIHome);
+            float netForce = myForce - enemyForce;
 
+            // -----------------------------------------------------
+            // 1) OVERKILL CHECK
+            // -----------------------------------------------------
+            const float OVERKILL_THRESHOLD = 7f;
+            if (netForce >= OVERKILL_THRESHOLD)
+                return -5000f; 
 
-            float enemyPush = Mathf.Max(0, enemyForce - myForce);
+            // -----------------------------------------------------
+            // 2) BALANCE BIAS
+            // -----------------------------------------------------
+            float balancePenalty = advantage * 0.5f; 
 
-            float advantage = Mathf.Max(0, myForce - enemyForce);
+            // -----------------------------------------------------
+            // 3) CLAMP ADVANTAGE
+            // -----------------------------------------------------
+            float clampedAdvantage = Mathf.Min(advantage, 5f);
 
-            // -----------------------------
-            // Final score
-            // -----------------------------
+            // -----------------------------------------------------
+            // 4) FINAL SCORE
+            // -----------------------------------------------------
             float score =
                 danger * dangerWeight +
                 enemyPush * counterWeight +
-                advantage * pushWeight;
+                clampedAdvantage * pushWeight;
+
+            score -= balancePenalty;
 
             return score;
         }
+
     }
 }

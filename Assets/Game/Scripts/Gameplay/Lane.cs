@@ -21,11 +21,25 @@ namespace Game.Scripts
         public Transform homeB;
         public float goalThreshold = 0.5f;
 
+        public GameObject lockGameObject;
+
         public List<AnimalUnit> stackA = new List<AnimalUnit>();
         public List<AnimalUnit> stackB = new List<AnimalUnit>();
 
         public List<AnimalUnit> allAnimalA = new List<AnimalUnit>();
         public List<AnimalUnit> allAnimalB = new List<AnimalUnit>();
+
+        private bool _isLaneUnlocked;
+
+        public bool IsLaneLocked
+        {
+            get => _isLaneUnlocked;
+            set
+            {
+                _isLaneUnlocked = value;
+                lockGameObject.SetActive(_isLaneUnlocked);
+            }
+        }
 
         public void JoinLane(AnimalUnit a, Team team)
         {
@@ -210,7 +224,7 @@ namespace Game.Scripts
                 allAnimalA.Clear();
             }
         }
-        
+
         public IEnumerator Shake(float duration, float magnitude)
         {
             Vector3 originalPos = transform.localPosition;

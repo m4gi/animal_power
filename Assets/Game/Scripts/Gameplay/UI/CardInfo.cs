@@ -1,3 +1,4 @@
+using System;
 using Coffee.UIEffects;
 using Game.Scripts.GameData;
 using TMPro;
@@ -12,15 +13,30 @@ namespace Game.Scripts
         [SerializeField] private GameObject[] groupStar;
         [SerializeField] private Image cooldownMask;
         [SerializeField] private TextMeshProUGUI energyCostText;
+        [SerializeField] private TextMeshProUGUI powerText;
         [SerializeField] private ObjectSettings objectSettings;
         [SerializeField] private UIEffect uiEffect;
-
+        [SerializeField] private Button helpButton;
+        
         private int costEnergy;
 
         private bool tempState = false;
+        
+        private AnimalConfig _animalConfig;
+
+        private void Start()
+        {
+            helpButton.onClick.AddListener(ShowHintCard);
+        }
+
+        private void OnDestroy()
+        {
+            helpButton.onClick.RemoveListener(ShowHintCard);
+        }
 
         public void InitCard(AnimalConfig config)
         {
+            _animalConfig = config;
             costEnergy = config.animalLevel;
             cooldownMask.fillAmount = 0;
             itemImage.sprite = config.animalSprite;
@@ -30,6 +46,7 @@ namespace Game.Scripts
             }
 
             energyCostText.text = $"{config.animalLevel}";
+            powerText.text = $"{config.strength}";
             if (objectSettings != null)
                 objectSettings.Id = config.animalName;
         }
@@ -54,6 +71,16 @@ namespace Game.Scripts
         public float GetAmount()
         {
             return cooldownMask.fillAmount;
+        }
+
+        private void ShowHintCard()
+        {
+            UIManager.Instance.ShowCardDetail(_animalConfig);
+        }
+
+        public void SetActiveHelpButton(bool active)
+        {
+            helpButton.gameObject.SetActive(active);
         }
     }
 }

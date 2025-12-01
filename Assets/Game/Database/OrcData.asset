@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9d14c30856490b8aa59f6a19028e29, type: 3}
+  m_Name: OrcData
+  m_EditorClassIdentifier: 
+  animals:
+  - animalName: orc_1
+    prefab: {fileID: 8931786759520605623, guid: c05f09fb7a36546cea717587a1069318, type: 3}
+    moveSpeed: 4
+    strength: 10
+    animalSprite: {fileID: 21300000, guid: 48650a3b111154bf9a4a1c4f66843b5b, type: 3}
+    animalLevel: 1
+  - animalName: orc_2
+    prefab: {fileID: 7885601508771949069, guid: ed864a4ec36b047679cda8fb8a2f99cf, type: 3}
+    moveSpeed: 4
+    strength: 20
+    animalSprite: {fileID: 21300000, guid: 8cfec985b71bf43e1ae2b5bff47813eb, type: 3}
+    animalLevel: 2
+  - animalName: orc_3
+    prefab: {fileID: 6909585525910076059, guid: 8663034f5395544d3bcb736525d9b17f, type: 3}
+    moveSpeed: 4
+    strength: 40
+    animalSprite: {fileID: 21300000, guid: 8bd0f33724b114feb89681cac181f518, type: 3}
+    animalLevel: 3
+  - animalName: orc_4
+    prefab: {fileID: 3161994048031186806, guid: ff0cc8ba99187437db185f5560f06202, type: 3}
+    moveSpeed: 4
+    strength: 60
+    animalSprite: {fileID: 21300000, guid: 8a2b94c9ea9aa45a2925114a66607f03, type: 3}
+    animalLevel: 6
+  - animalName: orc_5
+    prefab: {fileID: 6097009305321138982, guid: 0bc7d87e09fa74ea3bcc091a80edbadd, type: 3}
+    moveSpeed: 4
+    strength: 80
+    animalSprite: {fileID: 21300000, guid: e40fedd1f7127416592bc805cd3d9a49, type: 3}
+    animalLevel: 8
