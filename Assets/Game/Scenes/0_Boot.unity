@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  VersionNow: 1
+  VersionNow: 2
   isFistTime: 1
   AnimalDataLocal:
   - animalID: fox
