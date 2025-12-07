@@ -18,16 +18,15 @@ namespace Game.Scripts
         [Header("Lanes")] public Lane[] lanes;
 
         [Header("Game State")] public bool gameEnded = false;
+        public bool gamePause = false;
 
         [Header("Match Settings")] public float matchDuration = 300f;
         private float timeRemaining;
-        
-        [Header("Database Settings")]
-        public CardManager cardManager;
-        
-        [Header("UI")]
-        public ResultPanelUI resultPanel;
-        
+
+        [Header("Database Settings")] public CardManager cardManager;
+
+        [Header("UI")] public ResultPanelUI resultPanel;
+
         private LocalDataPlayer LocalData => LocalDataPlayer.Instance;
 
         protected override void AwakeSingleton()
@@ -46,6 +45,7 @@ namespace Game.Scripts
                 matchDuration = dataLevel.time;
                 UnlockLane(dataLevel.numberOfLane);
             }
+
             ResetHP();
         }
 
@@ -55,10 +55,10 @@ namespace Game.Scripts
             UIManager.Instance.InitHP(maxHP);
             UIManager.Instance.UpdateHP(teamAHP, teamBHP);
             UIManager.Instance.UpdateTimer(timeRemaining);
-            
+
             SoundSystem.Instance?.PlayMusic(MusicConst.MainGameMusic);
         }
-        
+
         private void UnlockLane(int numberOfLane)
         {
             for (int i = 0; i < lanes.Length; i++)
@@ -76,6 +76,7 @@ namespace Game.Scripts
 
         void Update()
         {
+            if (gamePause) return;
             if (gameEnded) return;
 
             foreach (var lane in lanes)
@@ -123,7 +124,7 @@ namespace Game.Scripts
                 teamBHP -= hpPerGoal;
                 Debug.Log($"Team B takes damage! HP = {teamBHP}");
             }
-            
+
             SoundSystem.Instance?.PlaySFX(SFXConst.HitBase);
             lane.ResetLane();
 
@@ -182,6 +183,11 @@ namespace Game.Scripts
                 if (lane != null)
                     lane.ResetLane();
             }
+        }
+
+        public void SetGamePause(bool isPause)
+        {
+            gamePause = isPause;
         }
     }
 }

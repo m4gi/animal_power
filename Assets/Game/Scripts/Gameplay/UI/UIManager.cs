@@ -26,6 +26,7 @@ namespace Game.Scripts
         [Header("UI Manager")] 
         public CardDetailPopup cardDetailPopup;
         public GameObject newTroopUnlockPopup;
+        public GameObject tutorialPopup;
 
         private float globalCooldownDurationPlayer = 0f;
         private float globalCooldownEndTimePlayer = 0f;
@@ -44,6 +45,12 @@ namespace Game.Scripts
                 for (int i = 4; i > maxCard - 1; i--)
                 {
                     playerCardSlots[i].gameObject.SetActive(false);
+                }
+
+                if (currentLevel.level == 0)
+                {
+                    tutorialPopup.SetActive(true);
+                    GameManager.Instance.SetGamePause(true);
                 }
 
                 if (currentLevel.level == 1)

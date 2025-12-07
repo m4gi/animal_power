@@ -10,9 +10,11 @@ namespace Game.Scripts
         public float currentEnergy = 0;
         public float rechargeRate = 0.5f;
         public Slider energyCostSlider;
-        public TextMeshProUGUI  energyCostText;
+        public TextMeshProUGUI energyCostText;
+
         void Update()
         {
+            if (GameManager.Instance.gamePause) return;
             currentEnergy += rechargeRate * Time.deltaTime;
             currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
 
